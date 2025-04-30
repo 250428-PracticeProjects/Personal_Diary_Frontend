@@ -3,7 +3,7 @@ import React from 'react';
 function Navbar() {
   return (
     <nav>
-      <h2>Personal Diary</h2>
+      <h2>My Personal Diary</h2>
     </nav>
   );
 }
