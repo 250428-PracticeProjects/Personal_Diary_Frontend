@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/Login';
+import Register from './components/Register';
+import NotFound from './components/NotFound';
+import DiaryEntryList from './components/DiaryEntryList';
+import DailyQuote from './components/DailyQuote';  // Ensure this is imported correctly
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        
+        {/* Render DailyQuote only once here */}
+        <DailyQuote /> {/* This is where the Daily Quote should appear once */}
+        
+        <Routes>
+          <Route path="/" element={<DiaryEntryList />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
